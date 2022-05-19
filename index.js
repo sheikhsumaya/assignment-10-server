@@ -36,6 +36,14 @@ async function run() {
       const query ={_id: ObjectId(id)};
       const data = await dataCollection.findOne(query);
       res.send(data);
+    });
+
+    // POST
+
+    app.post('/data', async(req, res) =>{
+      const newData = req.body;
+      const result = await dataCollection.insertOne(newData);
+      res.send(result);
     })
 
   } finally {
