@@ -44,7 +44,16 @@ async function run() {
       const newData = req.body;
       const result = await dataCollection.insertOne(newData);
       res.send(result);
-    })
+    });
+
+    // DELETE
+    app.delete('/data/:id', async (req, res) =>{
+      const id = req.params.id;
+      const query = {_id: ObjectId(id)};
+      const result = await dataCollection.deleteOne(query);
+      res.send(result);
+    });
+
 
   } finally {
   }
