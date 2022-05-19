@@ -47,7 +47,7 @@ async function run() {
     });
 
     // DELETE
-    app.delete('/data/:id', async (req, res) =>{
+    app.delete('/data/:id', async(req, res) =>{
       const id = req.params.id;
       const query = {_id: ObjectId(id)};
       const result = await dataCollection.deleteOne(query);
